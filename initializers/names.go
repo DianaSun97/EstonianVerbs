@@ -2168,8 +2168,8 @@ func CreateWords() {
 		wordsEng := wordsEng[englishVerbs]
 
 		words := models.Words{
-			FirstName: wordsEst,
-			LastName:  wordsEng,
+			EstVerb: wordsEst,
+			EngVerb: wordsEng,
 		}
 
 		DB.Save(&words)

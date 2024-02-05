@@ -1,0 +1,27 @@
+{{template "top" .}}
+
+<div class="block">
+  <div class="width">
+    <h1>Lists of Estonian verbs</h1>
+
+    <div class="words-table">
+      <div class="words-row head">
+        <div class="words-row-first">Estonian</div>
+        <div class="words-row-last">English</div>
+      </div>
+
+      {{ range.people }}
+      <div class="words-row">
+        <div class="words-row-first">
+          {{ .EstVerb  }}
+        </div>
+        <div class="words-row-last">
+          {{ .EngVerb }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</div>
+
+{{template "bottom" .}}

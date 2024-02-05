@@ -4,6 +4,6 @@ import "gorm.io/gorm"
 
 type Words struct {
 	gorm.Model
-	FirstName string
-	LastName  string
+	EstVerb string
+	EngVerb string
 }
