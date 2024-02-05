@@ -14,7 +14,7 @@ func WordsIndexGET(c *gin.Context) {
 	initializers.DB.Find(&words)
 
 	// Render the page
-	c.HTML(http.StatusOK, "index.gohtml", gin.H{
-		"people": words,
+	c.HTML(http.StatusOK, "index.tmpl", gin.H{
+		"words": words,
 	})
 }

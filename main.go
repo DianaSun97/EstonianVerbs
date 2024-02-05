@@ -25,5 +25,8 @@ func main() {
 	app.GET("/", controllers.WordsIndexGET)
 
 	// Start app
-	app.Run()
+	err := app.Run()
+	if err != nil {
+		return
+	}
 }
