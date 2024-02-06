@@ -1,12 +1,10 @@
 package initializers
 
 import (
-	"fmt"
-	"os"
-
 	"github.com/DianaSun97/PaginationScratch/models"
-	"gorm.io/driver/postgres"
+	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
+	"log"
 )
 
 var DB *gorm.DB
@@ -19,10 +17,11 @@ func SyncDB() {
 }
 
 func ConnectToDB() {
+
 	var err error
-	DB, err = gorm.Open(postgres.Open(os.Getenv("DB")), &gorm.Config{})
+	DB, err = gorm.Open(sqlite.Open("db.sql"), &gorm.Config{})
 
 	if err != nil {
-		fmt.Println("Failed to connect to db")
+		log.Fatalln("Failed to connect to db")
 	}
 }

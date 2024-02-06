@@ -2,6 +2,7 @@ package initializers
 
 import (
 	"github.com/DianaSun97/PaginationScratch/models"
+	"log"
 	"math/rand"
 )
 
@@ -2172,6 +2173,8 @@ func CreateWords() {
 			EngVerb: wordsEng,
 		}
 
-		DB.Save(&words)
+		if err := DB.Save(&words).Error; err != nil {
+			log.Fatalln(err)
+		}
 	}
 }
