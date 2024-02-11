@@ -23,6 +23,7 @@ func main() {
 
 	// Routing
 	app.GET("/", controllers.WordsIndexGET)
+	app.POST("/", controllers.WordsIndexPOST)
 
 	// Start app
 	err := app.Run()

@@ -5,17 +5,27 @@ import (
 	"github.com/DianaSun97/PaginationScratch/models"
 	"io/ioutil"
 	"log"
-	"math/rand"
 	"os"
 )
 
-// Определяем структуру для разбора JSON
+// Обновляем структуру для соответствия новому формату JSON
+type VerbForm struct {
+	ID       int    `json:"id"`
+	Word     string `json:"word"`
+	Ma       string `json:"ma"`
+	Sa       string `json:"sa"`
+	Ta       string `json:"ta"`
+	Me       string `json:"me"`
+	Te       string `json:"te"`
+	Nad      string `json:"nad"`
+	Negative string `json:"negative"`
+}
+
 type WordsJSON struct {
-	WordsEst []string `json:"words"`
+	Verbs []VerbForm `json:"verbs"`
 }
 
 func CreateWords() {
-	// Открываем файл JSON
 	file, err := os.Open("./assets/words.json")
 	if err != nil {
 		log.Fatalln("Error opening JSON file:", err)
@@ -29,24 +39,14 @@ func CreateWords() {
 	var wordsData WordsJSON
 	err = json.Unmarshal(byteValue, &wordsData)
 	if err != nil {
-		return
+		log.Fatalln("Error unmarshaling JSON:", err)
 	}
 
-	// Теперь wordsData.WordsEng содержит массив английских слов
-	wordsEng := wordsData.WordsEst
-	wordsEst := []string{
-		// Добавьте ваши эстонские слова здесь
-	}
-
-	for i := 0; i < 1000; i++ {
-		estonianVerbIndex := rand.Intn(len(wordsEst))
-		englishVerbIndex := rand.Intn(len(wordsEng))
-		wordEst := wordsEst[estonianVerbIndex]
-		wordEng := wordsEng[englishVerbIndex]
-
+	// Используем данные из wordsData для работы
+	for _, verb := range wordsData.Verbs {
 		word := models.Words{
-			EstVerb: wordEst,
-			EngVerb: wordEng,
+			EstVerb: verb.Word, // Предполагается, что EstVerb хранит основную форму слова
+			EngVerb: "",        // EngVerb не указан в вашем JSON, возможно, потребуется другая логика для английских слов
 		}
 
 		if err := DB.Save(&word).Error; err != nil {
