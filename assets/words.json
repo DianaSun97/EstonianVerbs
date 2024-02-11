@@ -1,4 +1,5 @@
 {
+  "tõmbuma": {
   "word": "Tõmbuma",
   "forms": {
     "Ma": "tõmbun",
@@ -8,5 +9,30 @@
     "Te": "tõmbute",
     "Nad": "tõmbuvad",
     "Negative": "ei tõmbu"
+   }
+  },
+  "jooksma": {
+    "word": "Jooksma",
+    "forms": {
+      "Ma": "jooksen",
+      "Sa": "jooksed",
+      "Ta": "jookseb",
+      "Me": "jookseme",
+      "Te": "jooksete",
+      "Nad": "jooksevad",
+      "Negative": "ei jookse"
+    }
+  },
+  "kirjutama": {
+    "word": "Kirjutama",
+    "forms": {
+      "Ma": "kirjutan",
+      "Sa": "kirjutad",
+      "Ta": "kirjutab",
+      "Me": "kirjutame",
+      "Te": "kirjutate",
+      "Nad": "kirjutavad",
+      "Negative": "ei kirjuta"
+    }
   }
 }
