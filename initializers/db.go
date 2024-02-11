@@ -19,7 +19,7 @@ func SyncDB() {
 func ConnectToDB() {
 
 	var err error
-	DB, err = gorm.Open(sqlite.Open("db.sql"), &gorm.Config{})
+	DB, err = gorm.Open(sqlite.Open("db.sqlite"), &gorm.Config{})
 
 	if err != nil {
 		log.Fatalln("Failed to connect to db")
