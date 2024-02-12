@@ -45,7 +45,7 @@ func CreateWords() {
 	// Используем данные из wordsData для работы
 	for _, verb := range wordsData.Verbs {
 		word := models.Words{
-			EstVerb: verb.Word, // Предполагается, что EstVerb хранит основную форму слова
+			EstVerb: verb.Word, //  EstVerb хранит основную форму слова
 			EngVerb: "",        // EngVerb не указан в вашем JSON, возможно, потребуется другая логика для английских слов
 		}
 
